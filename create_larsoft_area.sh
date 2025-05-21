@@ -120,7 +120,7 @@ source /cvmfs/dune.opensciencegrid.org/products/dune/setup_dune.sh
 setup dunesw ${DUNESW_VERSION} -q ${DUNESW_QUALS}
 
 # Source the setup script for the local products associated to the development area
-source ${HERE}/trigger_tutorial/localProducts_larsoft_*/setup
+source \${HERE}/localProducts_larsoft_*/setup
 
 # Set up the MRB source local products
 mrbslp
@@ -129,7 +129,7 @@ mrbslp
 unset HERE
 
 #
-alias dunesw-build='ninja -C ${MRB_BUILDDIR} -k 0 install | grep -v "Up-to-date" '
+alias dunesw-build='ninja -C \${MRB_BUILDDIR} -k 0 install | grep -v "Up-to-date" '
 
 EOF
 
