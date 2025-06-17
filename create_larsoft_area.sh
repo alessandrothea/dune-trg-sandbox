@@ -104,7 +104,6 @@ mrb newDev -v ${DUNESW_VERSION} -q ${DUNESW_QUALS}
 
 
 cat > setup_dunesw.sh << EOF
-
 #!/bin/bash
 
 HERE=\$(cd \$(dirname \$(readlink -f \${BASH_SOURCE})) && pwd)
@@ -132,6 +131,18 @@ unset HERE
 alias dunesw-build='ninja -C \${MRB_BUILDDIR} -k 0 install | grep -v "Up-to-date" '
 
 EOF
+
+
+cat > lar_wrap.sh << EOF
+#!/bin/bash
+
+HERE=\$(cd \$(dirname \$(readlink -f \${BASH_SOURCE})) && pwd)
+
+source ${HERE}/setup_dunesw.sh
+exec lar "\$@"
+EOF
+
+chmod a+x lar_wrap.sh
 
 
 echo "I am here : $PWD"
