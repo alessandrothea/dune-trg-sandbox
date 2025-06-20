@@ -138,7 +138,7 @@ cat > lar_wrap.sh << EOF
 
 HERE=\$(cd \$(dirname \$(readlink -f \${BASH_SOURCE})) && pwd)
 
-source ${HERE}/setup_dunesw.sh
+source \${HERE}/setup_dunesw.sh
 exec lar "\$@"
 EOF
 
