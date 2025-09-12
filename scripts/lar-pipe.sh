@@ -5,7 +5,7 @@ set -euo pipefail
 
 usage() {
     cat <<'USAGE'
-Usage: cfg_parser.sh [options] <config.yaml>
+Usage: lar-pipe.sh [options] <config.yaml>
 
 Options:
   -n, --dry-run   Do not execute anything; only print what would be done
@@ -183,6 +183,6 @@ for i in "${!sequence[@]}"; do
 
     echo "Executing command!"
 
-    #${cmd_line}
+    ${cmd_line}
 
 done
